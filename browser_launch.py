@@ -25,10 +25,12 @@ dropdown = driver.find_element(By.ID, "exampleFormControlSelect1")
 s1 = Select(dropdown)
 s1.select_by_visible_text("Female")
 driver.find_element(By.ID,"inlineRadio1").click()
+#<--------------------------------------Dynamic Date -------------------------------------------------------->
 tomorrow = date.today() + timedelta(days=2)
 formatted_date = tomorrow.strftime("%Y-%m-%d")
-date_input = driver.find_element(By.NAME, "bday")
-date_input.send_keys(formatted_date)
+date = driver.find_element(By.NAME, "bday")
+date.send_keys(formatted_date)
+#<--------------------------------------Dynamic Date -------------------------------------------------------->
 driver.find_element(By.XPATH,"//input[@type='submit']").click()
 success_alert = WebDriverWait(driver, 10).until(
     expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "div.alert-success"))
