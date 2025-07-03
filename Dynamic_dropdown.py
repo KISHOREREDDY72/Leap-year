@@ -12,10 +12,12 @@ driver.find_element(By.ID,"autosuggest").send_keys("uni")
 # united_states_option = WebDriverWait(driver, 10).until(
 #     EC.visibility_of_element_located((By.XPATH, suggestion_xpath))
 # )
-suggestion_xpath = "//li[@class='ui-menu-item']/a[contains(text(), 'United States')]"
+suggestion_xpath = "//li[@class='ui-menu-item']/a[contains(text(), \"United States\")]"
 united_states_option = driver.find_element(By.XPATH,suggestion_xpath)
 
 united_states_option.click()
+selected_value = driver.find_element(By.ID, "autosuggest").get_attribute("value")
+print("Selected country:", selected_value)
 time.sleep(4)
 
 
